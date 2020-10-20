@@ -1,7 +1,7 @@
 // Import MySQL connection.
 const connection = require("../config/connection.js");
 
-//Methods that will execute the necessary MySQL commands in the controllers
+
 function printQuestionMarks(num) {
     let arr = [];
 
@@ -19,14 +19,10 @@ function objToSql(obj) {
     // loop through the keys and push the key/value as a string int arr
     for (let key in obj) {
         let value = obj[key];
-        // check to skip hidden properties
         if (Object.hasOwnProperty.call(obj, key)) {
-            // if string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
             if (typeof value === "string" && value.indexOf(" ") >= 0) {
                 value = `'${value}'`;
             }
-            // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
-            // e.g. {sleepy: true} => ["sleepy=true"]
             arr.push(`${key}=${value}`);
         }
     }
@@ -34,21 +30,22 @@ function objToSql(obj) {
     // translate array of strings to a single comma-separated string
     return arr.toString();
 }
-
-// Object for all our SQL statement functions.
+//Object for SQL Functions
 const orm = {
-    all: (tableInput, cb) => {
-        const queryString = `SELECT * FROM ${tableInput};`;
+    //SelectAll Function
+    selectAll: (table, cb) => {
+        const queryString = `SELECT * FROM ${table};`;
+        console.log(queryString);
         connection.query(queryString, (err, result) => {
             if (err) {
                 throw err;
             }
             cb(result);
-        });
+        })
     },
-    create: (table, cols, vals, cb) => {
-        let queryString = `INSERT INTO ${table}`;
-
+    //insertOne Function
+    insertOne: (table, cols, vals, cb) => {
+        letqueryString = `INSERT INTO ${table}`;
         queryString += " (";
         queryString += cols.toString();
         queryString += ") ";
@@ -62,14 +59,13 @@ const orm = {
             if (err) {
                 throw err;
             }
-
             cb(result);
-        });
+        })
     },
-    // An example of objColVals would be {name: panther, sleepy: true}
-    update: (table, objColVals, condition, cb) => {
-        let queryString = `UPDATE ${table}`;
+    //UpdateOne Function
 
+    updateOne: (table, objColVals, condition, cb) => {
+        let queryString = `UPDATE ${table}`;
         queryString += " SET ";
         queryString += objToSql(objColVals);
         queryString += " WHERE ";
@@ -80,21 +76,27 @@ const orm = {
             if (err) {
                 throw err;
             }
-
             cb(result);
-        });
+        })
+
     },
-    delete: (table, condition, cb) => {
-        const queryString = `DELETE FROM ${table} WHERE ${condition}`;
+
+    deleteOne: (table, condition, cb) => {
+        let queryString = `DELETE FROM ${table}`;
+        queryString += " WHERE ";
+        queryString += condition;
+
+        console.log(queryString);
         connection.query(queryString, (err, result) => {
             if (err) {
                 throw err;
             }
-
             cb(result);
-        });
+        })
     }
-};
+
+}
+
 
 
 

@@ -1,0 +1,36 @@
+<h1>Welcome to the Krusty Krab</h1>
+
+<div class="jumbotron">
+  <h2 class="display-4">Eat Da Burger!</h1>
+    <form class="create-form">
+        <div class="form-group">
+            <label for="burger">Burgers:</label>
+            <input type="text" id="userBurger" name="newBurger" placeholder="which burger did you eat?"/>
+        </div>
+        <div class="form-group">
+        <label class="formControl" >Eat Da Burger:</label>
+        <input type="radio" name="devoured" value="1" />Eat Burger
+        <input type="radio" name="devoured" value="0" checked="">Burgers to Eat
+        <button type="submit">Devour Burger!</button>
+        </div>
+    </form>
+</div>
+<div class= "row">
+
+<ul>
+  {{#each burgers}}
+    {{#unless devoured}}
+      {{> burger-block devoured=false}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h3>Kraby Patties Eaten</h2>
+
+<ul>
+  {{#each burgers}}
+    {{#if devoured}}
+      {{> burger-block devoured=true}}
+    {{/if}}
+  {{/each}}
+</ul>
