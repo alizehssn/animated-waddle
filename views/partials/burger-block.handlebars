@@ -2,6 +2,8 @@
 	{{burger_name}}
 
 	<button class="submit" data-id="{{id}}" data-devoured="{{devoured}}">
-		{{#if devoured}}OM NOM!{{else}}Hungry!{{/if}}
+		{{#if devoured}}Cook Again!{{else}}Om Nom!{{/if}}
 	</button>
+
+	<button class="delete-burger" data-id="{{this.id}}">DELETE!</button>
 </li>

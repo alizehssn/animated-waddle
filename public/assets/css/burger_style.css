@@ -1,0 +1,13 @@
+body {
+    text-align: center;
+    font-family: 'Slackey', cursive;
+    background-image: url("https://wallpapercave.com/wp/wp2636472.jpg");
+}
+
+.jumbotron {
+    background-color: transparent;
+}
+
+.card {
+    background-color: transparent;
+}

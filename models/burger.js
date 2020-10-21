@@ -1,5 +1,5 @@
 //Import ORM to create functions
-const orm = require("../config/orm.js");
+const orm = require("../config/orm");
 
 const burger = {
     read: (cb) => {

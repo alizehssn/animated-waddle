@@ -1,5 +1,5 @@
 // Import MySQL connection.
-const connection = require("../config/connection.js");
+const connection = require("./connection");
 
 
 function printQuestionMarks(num) {
@@ -45,7 +45,7 @@ const orm = {
     },
     //insertOne Function
     insertOne: (table, cols, vals, cb) => {
-        letqueryString = `INSERT INTO ${table}`;
+        let queryString = `INSERT INTO ${table}`;
         queryString += " (";
         queryString += cols.toString();
         queryString += ") ";
@@ -96,11 +96,6 @@ const orm = {
     }
 
 }
-
-
-
-
-
 
 
 
