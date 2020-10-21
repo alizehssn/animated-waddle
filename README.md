@@ -5,12 +5,11 @@
 A user enters their patty type and it is then put into either a burgers to be eaten list or "orders" and a list for eaten burgers "devoured". The user can switch the burgers between the two lists or delete the burgers*
 
  :floppy_disk: **Installation** :floppy_disk:
-Clone into repository and run with node server and then visit local host html or they can use the app deployed on Heroku.
+Clone into repository on [Github](https://github.com/alizehssn/animated-waddle)and run with node server and then visit local host html or they can use the app deployed on [Heroku](https://young-mountain-66260.herokuapp.com)
 
 :open_file_folder: **Usage** :open_file_folder:
 
-The functionality is displayed in a walkthrough in the video below or an the deployed Heroku application
-<>
+The functionality is displayed in a walkthrough in the video below or an the deployed Heroku [application](https://young-mountain-66260.herokuapp.com)
 
 :chart_with_upwards_trend: **Tests** :chart_with_downwards_trend:
 The tests that were run to validate that each employee class was generating each respective information into the app.js is written in the "test" folder.
